@@ -32,24 +32,46 @@ confetti({
 }
 
 
-const video = document.getElementById('VideoPlay');
- timeoutId2 = setTimeout(() => {
-  window.location.reload();
-},10000);
- if (video.readyState >= 4) {
-  setupStartButton();
-} else {
-  video.addEventListener('canplaythrough', setupStartButton);
+const video = document.getElementById("VideoPlay");
+const audio = document.getElementById("audio");
+const startobj = document.getElementById("startButton");
+
+let videoReady = false;
+let audioReady = false;
+
+function checkReady() {
+  if (videoReady && audioReady) {
+    setupStartButton();
+  }
 }
 
- function setupStartButton() {
-  const startobj=document.getElementById("startButton");
-  clearTimeout(timeoutId2);
+function setupStartButton() {
   startobj.innerHTML = 'Start';
   startobj.addEventListener('click', () => {
-    launchConfetti(startobj);
+    launchConfetti(startobj)
   });
 }
+
+if (video.readyState >= 4) {
+  videoReady = true;
+} else {
+  video.addEventListener('canplaythrough', () => {
+    videoReady = true;
+    checkReady();
+  });
+}
+
+if (audio.readyState >= 4) {
+  audioReady = true;
+} else {
+  audio.addEventListener('canplaythrough', () => {
+    audioReady = true;
+    checkReady();
+  });
+}
+
+checkReady();
+
 
 const imageContainer = document.getElementById('imageScroll');
 const images = imageContainer.querySelectorAll('img');
