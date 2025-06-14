@@ -1,0 +1,254 @@
+body,
+html {
+  padding: 0;
+  margin: 0;
+  height: 100dvh;
+}
+*{
+  -webkit-tap-highlight-color: transparent;
+}
+::-webkit-scrollbar{
+  height: 0;
+}
+body {
+  background: linear-gradient(to right, #ffe4e1, #fff0f5);
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  text-align: center;
+  padding: 0;
+}
+
+.videoPlayer {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: black;
+  opacity: 1;
+  transition: 1s ease-in-out;
+  z-index: 20;
+}
+.MainContainer {
+  /* background-color: rgb(180, 111, 111); */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.details {
+  max-width: 400px;
+  width: 100%;
+  height: fit-content;
+  padding: 30px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+  /* gap: 10px; */
+  flex-direction: column;
+  z-index: 10;
+}
+.birthday{
+  width: 100%;
+  height: fit-content;
+}
+.birthday img{
+  
+  width: 80%;
+}
+.image{
+  max-width: 450px;
+  border-radius: 10px;
+  overflow-x:scroll;
+  overflow-y: hidden;
+  display: flex;
+  align-items: center;
+  scroll-snap-type: x mandatory;
+  height: fit-content;
+
+}
+.image >img{
+  scroll-snap-align: center;
+  width: 100%;
+  border-radius: 10px;
+  height: fit-content;
+}
+.Disappear {
+  opacity: 0;
+}
+.controlles{
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+.controlles button{
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  display: flex;
+  place-content: center;
+  cursor: pointer;
+}
+#option{
+  font-size: 13px;
+  background-color: #e7cdca;
+  padding: 2px 15px;
+  border-radius: 5px;
+}
+
+video {
+  height: 100%;
+  width: 90%;
+  /* box-shadow: 0 10px 20px rgba(255, 105, 180, 0.3); */
+}
+
+.started {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0);
+  position: absolute;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+}
+#startButton {
+  background: #ff69b4;
+  color: white;
+  font-size: 1.8rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 0 20px #ff69b4, 0 0 30px #ffb6c1;
+  animation: pulse 2s infinite;
+  margin-top: 20px;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 10px #ff69b4;
+  }
+  50% {
+    box-shadow: 0 0 30px #ffb6c1;
+  }
+  100% {
+    box-shadow: 0 0 10px #ff69b4;
+  }
+}
+
+#balloon-area {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.balloon {
+  
+  position: absolute;
+  bottom: -100px;
+  width: 40px;
+  height: 60px;
+  background: radial-gradient(circle at 30% 30%, #ff4b81, #ff1b68);
+  border-radius: 50% 50% 45% 45%;
+  animation: 
+  float 8s cubic-bezier(0.3, 0.2, 0.25, 1) forwards;
+  opacity: 0.8;
+  box-shadow: inset -4px -6px 10px rgba(0,0,0,0.1), 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.balloon::after {
+  content: "";
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 20px;
+  background: #444;
+  border-radius: 30px;
+}
+
+.balloon::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 8px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  transform: rotate(-20deg);
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: .3;
+  }
+  100% {
+    transform: translateY(-120vh) translateX(0);
+    opacity: 0;
+  }
+}
+
+@keyframes sway {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-3px); }
+  100% { transform: translateX(0); }
+}
+
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 12px;
+  gap: 8px;
+  height: 66px;
+  width: 150px;
+  border: none;
+  background: #ffffff33;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.lable {
+  line-height: 20px;
+  font-size: 17px;
+  color: white;
+  font-family: sans-serif;
+  letter-spacing: 1px;
+}
+
+.button.active {
+  background: #ff00bbbd;
+}
+
+.button.active .svg-icon {
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
