@@ -1,5 +1,6 @@
 document.body.style.overflow='hidden'
 let timeoutId;
+let timeoutId2;
 function launchConfetti(obj) {
   obj.parentNode.remove();
   document.getElementById("VideoPlay").play();
@@ -32,14 +33,23 @@ confetti({
 
 
 const video = document.getElementById('VideoPlay');
+ timeoutId2 = setTimeout(() => {
+  window.location.reload();
+},10000);
+ if (video.readyState >= 4) {
+  setupStartButton();
+} else {
+  video.addEventListener('canplaythrough', setupStartButton);
+}
 
-  video.addEventListener('canplaythrough', () => {
-    const startobj=document.getElementById("startButton");
-    startobj.innerHTML='Start'
-    startobj.addEventListener('click',()=>{
-      launchConfetti(startobj)
-    })
+ function setupStartButton() {
+  const startobj=document.getElementById("startButton");
+  clearTimeout(timeoutId2);
+  startobj.innerHTML = 'Start';
+  startobj.addEventListener('click', () => {
+    launchConfetti(startobj);
   });
+}
 
 const imageContainer = document.getElementById('imageScroll');
 const images = imageContainer.querySelectorAll('img');
