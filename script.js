@@ -1,6 +1,7 @@
 document.body.style.overflow='hidden'
 let timeoutId;
 let timeoutId2;
+
 function launchConfetti(obj) {
 
   obj.parentNode.remove();
