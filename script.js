@@ -2,15 +2,18 @@ document.body.style.overflow='hidden'
 let timeoutId;
 let timeoutId2;
 function launchConfetti(obj) {
+
   obj.parentNode.remove();
   document.getElementById("VideoPlay").play();
+
   setTimeout(() => {
     sprinkles(200);
-    
   }, 3000);
+
   setTimeout(()=>{
     changeImage(1)
-  },10000)
+  },10000);
+
   setTimeout(() => {
     document.getElementById("audio").play()
     document.querySelector(".videoPlayer").classList.add("Disappear");
@@ -21,14 +24,15 @@ function launchConfetti(obj) {
        setEvents()
     },1000)
   }, 11000);
+
 }
 
 function sprinkles(part){
-confetti({
-      particleCount: part,
-      spread: 80,
-      ticks: 300, 
-    });
+  confetti({
+    particleCount: part,
+    spread: 80,
+    ticks: 300, 
+  });
 }
 
 
@@ -102,7 +106,7 @@ function resetTimer() {
   }, 6000);
 }
 function setEvents(){
-imageContainer.addEventListener('scroll', () => {
+  imageContainer.addEventListener('scroll', () => {
     const scrollLeft = imageContainer.scrollLeft;
     const newIndex = Math.round(scrollLeft / imageWidth);
 
@@ -111,29 +115,29 @@ imageContainer.addEventListener('scroll', () => {
       document.getElementById('option').textContent = `${currentIndex + 1} / ${totalImages}`;
       resetTimer();
     }
-});
+  });
 }
 
 
 
-  const text = "Thank you for being my <b>best friend</b>, standing by me, and supporting me through the toughest times of my life. <b>Your presence</b> means more than words can express.";
+  const text = "Thank you for being <b>my best friend</b>, standing by me, and supporting me through the toughest times of my life. <b>Your presence</b> means more than words can express.";
   const target = document.getElementById("typedText");
   let i = 0;
 
-  function typeWriter() {
-    target.innerHTML = text.slice(0, i);
-    i++;
-    if (i <= text.length) {
-      setTimeout(typeWriter, 40); 
-    }else{
-      sprinkles(400)
-    }
+function typeWriter() {
+  target.innerHTML = text.slice(0, i);
+  i++;
+  if (i <= text.length) {
+    setTimeout(typeWriter, 40); 
+  }else{
+    sprinkles(400)
   }
+}
 
 
 
 
-  function createBalloon() {
+function createBalloon() {
   const balloon = document.createElement('div');
   balloon.classList.add('balloon');
 
