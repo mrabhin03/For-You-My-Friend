@@ -167,6 +167,9 @@ video {
   opacity: 0.8;
   box-shadow: inset -4px -6px 10px rgba(0,0,0,0.1), 0 5px 15px rgba(0,0,0,0.2);
 }
+h3{
+  margin: 0;
+}
 
 .balloon::after {
   content: "";

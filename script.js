@@ -121,12 +121,14 @@ function setEvents(){
 
 
 
-  const text = "Thank you for being <b>my best friend</b>, standing by me, and supporting me through the toughest times of my life. <b>Your presence</b> means more than words can express.";
+  const text = "Thank you for being <b>my best friend</b>, standing by me, and supporting me through the toughest times of my life. <b>Your presence</b> means more than words can express.<br><br> <h3><i>Happy Birthday My Best Friend 💝</i></h3>";
   const target = document.getElementById("typedText");
   let i = 0;
 
 function typeWriter() {
-  target.innerHTML = text.slice(0, i);
+  if (text.charAt(i) !== "<" && text.charAt(i) !== "/" && text.charAt(i) !== ">") {
+    target.innerHTML = text.slice(0, i + 1);
+  }
   i++;
   if (i <= text.length) {
     setTimeout(typeWriter, 40); 
