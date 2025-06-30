@@ -92,12 +92,9 @@ function changeImage(direction) {
   } else if (currentIndex < 0) {
     currentIndex = totalImages - 1;
   }
-
   const scrollAmount = imageWidth * currentIndex;
   imageContainer.scrollTo({ left: scrollAmount, behavior: 'smooth' });
-  
   resetTimer();
-
 }
 
 function resetTimer() {
@@ -106,11 +103,11 @@ function resetTimer() {
     changeImage(1);
   }, 6000);
 }
+
 function setEvents(){
   imageContainer.addEventListener('scroll', () => {
     const scrollLeft = imageContainer.scrollLeft;
     const newIndex = Math.round(scrollLeft / imageWidth);
-
     if (newIndex !== currentIndex) {
       currentIndex = newIndex;
       document.getElementById('option').textContent = `${currentIndex + 1} / ${totalImages}`;
@@ -121,9 +118,9 @@ function setEvents(){
 
 
 
-  const text = "Thank you for being <b>my best friend</b>, standing by me, and supporting me through the toughest times of my life. <b>Your presence</b> means more than words can express.<br><br> <h3><i>Happy Birthday My Best Friend 💝</i></h3>";
-  const target = document.getElementById("typedText");
-  let i = 0;
+const text = "Thank you for being <b>my best friend</b>, standing by me, and supporting me through the toughest times of my life. <b>Your presence</b> means more than words can express.<br><br> <h3><i>Happy Birthday My Best Friend 💝</i></h3>";
+const target = document.getElementById("typedText");
+let i = 0;
 
 function typeWriter() {
   let thistime=0;

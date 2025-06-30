@@ -70,7 +70,6 @@ body {
   align-items: center;
   scroll-snap-type: x mandatory;
   height: fit-content;
-
 }
 .image >img{
   scroll-snap-align: center;
@@ -155,7 +154,6 @@ video {
 }
 
 .balloon {
-  
   position: absolute;
   bottom: -100px;
   width: 40px;
@@ -167,6 +165,7 @@ video {
   opacity: 0.8;
   box-shadow: inset -4px -6px 10px rgba(0,0,0,0.1), 0 5px 15px rgba(0,0,0,0.2);
 }
+
 h3{
   margin: 0;
 }
