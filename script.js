@@ -126,12 +126,14 @@ function setEvents(){
   let i = 0;
 
 function typeWriter() {
+  let thistime=0;
   if (text.charAt(i) !== "<" && text.charAt(i) !== "/" && text.charAt(i) !== ">") {
     target.innerHTML = text.slice(0, i + 1);
+    thistime=40;
   }
   i++;
   if (i <= text.length) {
-    setTimeout(typeWriter, 40); 
+    setTimeout(typeWriter, thistime); 
   }else{
     sprinkles(400)
   }
