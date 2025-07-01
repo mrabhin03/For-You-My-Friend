@@ -13,10 +13,10 @@ function launchConfetti(obj) {
 
   setTimeout(()=>{
     changeImage(1)
-    setEvents()
   },10000);
 
   setTimeout(() => {
+    setEvents()
     document.getElementById("audio").play()
     document.querySelector(".videoPlayer").classList.add("Disappear");
     document.body.style.overflow='auto'
