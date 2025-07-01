@@ -1,13 +1,6 @@
 document.body.style.overflow='hidden'
 let timeoutId;
 let timeoutId2;
-const imageContainer = document.getElementById('imageScroll');
-const images = imageContainer.querySelectorAll('img');
-const totalImages = images.length;
-let currentIndex = -1;
-
-const imageWidth = images[0].offsetWidth;
-
 
 function launchConfetti(obj) {
 
@@ -85,7 +78,12 @@ if (audio.readyState >= 4) {
 checkReady();
 
 
+const imageContainer = document.getElementById('imageScroll');
+const images = imageContainer.querySelectorAll('img');
+const totalImages = images.length;
+let currentIndex = -1;
 
+const imageWidth = images[0].offsetWidth;
 
 function changeImage(direction) {
   if(currentIndex==NaN){
