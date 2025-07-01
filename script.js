@@ -13,6 +13,7 @@ function launchConfetti(obj) {
 
   setTimeout(()=>{
     changeImage(1)
+    setEvents()
   },10000);
 
   setTimeout(() => {
@@ -22,7 +23,6 @@ function launchConfetti(obj) {
     setTimeout(()=>{
       document.querySelector(".videoPlayer").remove();
        typeWriter();
-       setEvents()
     },1000)
   }, 11000);
 
